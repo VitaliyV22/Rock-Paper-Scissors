@@ -1,15 +1,26 @@
-function getRandomItem(random) {
+let playerScore= 0
+let computerScore = 0
+let roundWinner = ""
 
-   
-    const randomIndex = Math.floor(Math.random() * random.length);
-
- 
-    const item = random[randomIndex];
-
-    return item;
+function playRound(playerSelection,computerSelection) { 
+    if (playerSelection == computerSelection) {
+    roundWinner = "tie"
+    }
+    
+    if (
+        (playerSelection === "Rock" && computerSelection === "Scissors") ||
+        (playerSelection ==="Paper" && computerSelection === "Rock") ||
+        (playerSelection === "Scissors" && computerSelection === "Paper")    
+    ) {
+         playerScore ++
+         roundWinner = "player" 
+       }
+    if (
+        (computerSelection === "Rock" && playerSelection === "Scissors") ||
+        (computerSelection ==="Paper" && playerSelection === "Rock") ||
+        (computerSelection === "Scissors" && playerSelection === "Paper")    
+    ) {
+         computerScore ++
+         roundWinner = "computer" 
+       }
 }
-
-const array = ["Rock", 'Paper', "Scissors"];
-const result = getRandomItem(array);
-
-console.log(result);
