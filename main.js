@@ -1,26 +1,56 @@
-let playerScore= 0
-let computerScore = 0
-let roundWinner = ""
+//UI
+const playerText = document.querySelector("#PlayerText") ;
+const computerText = document.querySelector("#ComputerText") ;
+const scoreText = document.querySelector("#ScoreText") ;
+const selButtons = document.querySelector("#selbutton") ;
 
-function playRound(playerSelection,computerSelection) { 
-    if (playerSelection == computerSelection) {
-    roundWinner = "tie"
-    }
+let player ;
+let computer ;
+let score ;
+
+
+
+selButtons.forEach(button => button.addEventListener("click", () => {
+    player = button.textContent;
+    randomChoice()
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `Computer: ${computer}`;
+    scoreText.textContent = game() ;
+
+
+}));
+
+
+function randomChoice(){
+
+    const randNum = Math.floor(Math.random() * 3) +  1  ;
     
-    if (
-        (playerSelection === "Rock" && computerSelection === "Scissors") ||
-        (playerSelection ==="Paper" && computerSelection === "Rock") ||
-        (playerSelection === "Scissors" && computerSelection === "Paper")    
-    ) {
-         playerScore ++
-         roundWinner = "player" 
+    switch(randNum){
+        case 1 :
+            computer = "Rock" ;
+            break ;
+        case 2 :
+            computer = "Paper" ;
+            break ;
+        case 3 :
+            computer = "Scissors" ;
+            break ;    
        }
-    if (
-        (computerSelection === "Rock" && playerSelection === "Scissors") ||
-        (computerSelection ==="Paper" && playerSelection === "Rock") ||
-        (computerSelection === "Scissors" && playerSelection === "Paper")    
-    ) {
-         computerScore ++
-         roundWinner = "computer" 
-       }
+    }
+
+function game() {
+    if(player == computer) {
+        return "Draw !";
+    }
+    else if(computer == "Rock"){
+        return (player == "Paper") ? "You win" : "You lose"
+    }
+    else if(computer == "Paper"){
+        return (player == "Scissors") ? "You win" : "You lose" 
+    }
+    else if(computer == "Scissors"){
+        return (player == "Rock") ? "You win" : "You lose" 
+    }
+ 
 }
+
