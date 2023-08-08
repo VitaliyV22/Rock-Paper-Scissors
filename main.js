@@ -1,11 +1,19 @@
 const playerText = document.querySelector("#PlayerText") ;
 const computerText = document.querySelector("#ComputerText") ;
 const scoreText = document.querySelector("#ScoreText") ;
+const scorecount = document.querySelector("#ScoreNumber") ;
 const buttons = document.querySelectorAll(".selbutton") ;
 
 let player ;
 let computer ;
 let score ;
+let win = "You win !" ;
+let lose = "You lose !" ;
+
+let playerScore = 0 ;
+let computerScore =0;
+
+
 
 
 
@@ -18,6 +26,7 @@ buttons.forEach(button => button.addEventListener("click", () => {
 
 
 }));
+
 
 
 function randomChoice(){
@@ -42,13 +51,16 @@ function game() {
         return "Draw !";
     }
     else if(computer == "Rock"){
-        return (player == "Paper") ? "You win !" : "You lose "
+        return (player == "Paper") ? win  : lose
+        
+        
     }
     else if(computer == "Paper"){
-        return (player == "Scissors") ? "You win !" : "You lose " 
+        return (player == "Scissors") ? win : lose
     }
     else if(computer == "Scissors"){
-        return (player == "Rock") ? "You win !" : "You lose " 
+        return (player == "Rock") ? win : lose
     }
  
 }
+

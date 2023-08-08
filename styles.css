@@ -1,3 +1,7 @@
+* {
+    background-color: antiquewhite;
+}
+
 .headings {
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -7,11 +11,20 @@
 }
 
 .selbutton {
-    font-size: 20px;
+    font-size: 35px;
     margin: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
+    background-color: azure;
+
 }
 .button-box {
     text-align: center;
     gap: 20px;
+    
+}
+
+#ScoreText {
+  
+}
+
